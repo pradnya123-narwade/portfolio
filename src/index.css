@@ -1,0 +1,132 @@
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
+
+:root {
+  --bg: #08080d;
+  --bg-secondary: #101018;
+  --card: rgba(255, 255, 255, 0.055);
+  --card-hover: rgba(255, 255, 255, 0.09);
+
+  --text: #f5f5f7;
+  --muted: #a5a5b5;
+
+  --primary: #9b6cff;
+  --secondary: #5ee7df;
+
+  --border: rgba(255, 255, 255, 0.1);
+
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* LIGHT MODE */
+
+body.light {
+  --bg: #f7f7fb;
+  --bg-secondary: #ffffff;
+
+  --card: rgba(0, 0, 0, 0.045);
+  --card-hover: rgba(0, 0, 0, 0.08);
+
+  --text: #17171c;
+  --muted: #626273;
+
+  --primary: #7651d6;
+  --secondary: #129c95;
+
+  --border: rgba(0, 0, 0, 0.1);
+
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+section {
+  padding: 100px 0;
+}
+
+/* =====================================================
+   BACKGROUND GLOW
+===================================================== */
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: var(--primary);
+  opacity: 0.08;
+  filter: blur(120px);
+  border-radius: 50%;
+  top: 5%;
+  left: -200px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  background: var(--secondary);
+  opacity: 0.06;
+  filter: blur(120px);
+  border-radius: 50%;
+  right: -200px;
+  bottom: 5%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
